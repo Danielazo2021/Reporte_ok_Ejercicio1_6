@@ -114,10 +114,6 @@ namespace Reportes_Ejercicio_1_6.Datos
 
 
 
-
-
-
-
         internal bool GuardarMestro_Detalle(string pa_camion, Camion ocamion, string pa_carga, DetalleCarga oCarga)
         {
             bool confirmacion = true;

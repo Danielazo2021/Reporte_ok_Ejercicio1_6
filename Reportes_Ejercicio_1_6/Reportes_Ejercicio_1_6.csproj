@@ -85,11 +85,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSet1.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Reportes\DataSet2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Reportes\DataSet3.cs">
       <DependentUpon>DataSet3.xsd</DependentUpon>
     </Compile>
@@ -103,12 +98,6 @@
     </Compile>
     <Compile Include="Reportes\Reporte1.Designer.cs">
       <DependentUpon>Reporte1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Reportes\Reporte22.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Reportes\Reporte22.Designer.cs">
-      <DependentUpon>Reporte22.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\Reporte33.cs">
       <SubType>Form</SubType>
@@ -130,13 +119,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Reportes\Report1.rdlc" />
-    <EmbeddedResource Include="Reportes\Report22.rdlc" />
     <EmbeddedResource Include="Reportes\Report33.rdlc" />
     <EmbeddedResource Include="Reportes\Reporte1.resx">
       <DependentUpon>Reporte1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\Reporte22.resx">
-      <DependentUpon>Reporte22.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Reporte33.resx">
       <DependentUpon>Reporte33.cs</DependentUpon>
@@ -161,17 +146,6 @@
     </None>
     <None Include="Reportes\DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="Reportes\DataSet2.xsc">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
-    </None>
-    <None Include="Reportes\DataSet2.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSet2.Designer.cs</LastGenOutput>
-    </None>
-    <None Include="Reportes\DataSet2.xss">
-      <DependentUpon>DataSet2.xsd</DependentUpon>
     </None>
     <None Include="Reportes\DataSet3.xsc">
       <DependentUpon>DataSet3.xsd</DependentUpon>

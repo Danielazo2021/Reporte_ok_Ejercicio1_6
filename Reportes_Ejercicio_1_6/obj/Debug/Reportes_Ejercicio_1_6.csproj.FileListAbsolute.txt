@@ -146,7 +146,6 @@ C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\ob
 C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\obj\Debug\Reportes_Ejercicio_1_6.Form1.resources
 C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\obj\Debug\Reportes_Ejercicio_1_6.Properties.Resources.resources
 C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\obj\Debug\Reportes_Ejercicio_1_6.Reportes.Reporte1.resources
-C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\obj\Debug\Reportes_Ejercicio_1_6.Reportes.Reporte22.resources
 C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\obj\Debug\Reportes_Ejercicio_1_6.csproj.GenerateResource.cache
 C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\obj\Debug\Reportes_Ejercicio_1_6.csproj.CoreCompileInputs.cache
 C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\obj\Debug\Reportes_Ejercicio_1_6.csproj.CopyComplete

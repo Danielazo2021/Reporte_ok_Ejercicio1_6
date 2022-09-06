@@ -21,6 +21,7 @@ namespace Reportes_Ejercicio_1_6
         List<DetalleCarga> Detalles = new List<DetalleCarga>();
         Camion CAM = new Camion();
         DetalleCarga OCarga;
+        string accion = "nuevo";
 
         public Form1()
         {
@@ -33,7 +34,17 @@ namespace Reportes_Ejercicio_1_6
         {
             CargarDGV(dgvCamiones);
             CargarCombo("pa_cargarCombo");
+            btnGrabar.Enabled = false;
+            habilitarIngresarDatos(false);
 
+
+        }
+
+        private void habilitarIngresarDatos(bool v)
+        {
+            txtPatente.Enabled = v;
+            txtPesoCarga.Enabled = v;
+            txtPesoMaximo.Enabled = v;
 
         }
 
@@ -76,19 +87,34 @@ namespace Reportes_Ejercicio_1_6
             OCarga.peso = pesoCarga;
 
 
-
-
-            if (oBD.GuardarMestro_Detalle("pa_cargarCamionNuevo", CAM, "pa_cargarCargaNueva", OCarga))
+            if (accion == "nuevo")
             {
-                MessageBox.Show("Carga registrada correctamente", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (oBD.GuardarMestro_Detalle("pa_cargarCamionNuevo", CAM, "pa_cargarCargaNueva", OCarga))
+                {
+                    MessageBox.Show("Carga registrada correctamente", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                }
+                else
+                {
+                    MessageBox.Show("ERROR. No se pudo registrar la carga", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
             }
             else
+                if(accion == "actualizar") // ver el sp de actualizacion // cambiar maestro detalle
             {
-                MessageBox.Show("ERROR. No se pudo registrar la carga", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (oBD.GuardarMestro_Detalle("[pa_modificarCamion]", CAM, "pa_ModificarCarga", OCarga))
+                {
+                    MessageBox.Show("Actualizacion registrada correctamente", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                }
+                else
+                {
+                    MessageBox.Show("ERROR. No se pudo Actualizar el registro", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+                }
 
             }
-
         }
 
 
@@ -167,28 +193,17 @@ namespace Reportes_Ejercicio_1_6
 
         }
 
-        private void btnDarDeBajaCamion_Click(object sender, EventArgs e)
-        {
-
-           
-        }
-
-        private void btnReporte1_Click(object sender, EventArgs e)
-        {
-
-            //new Reporte1().ShowDialog();
-
-            ////
-            ///
-
-
-
-        }
+       
                
         private void btnDarDeBajaCamion_Click_1(object sender, EventArgs e)
         {
             string patente = txtPatente.Text;
-
+            txtPatente.Enabled = true;
+            if(patente=="")
+            {
+                MessageBox.Show("Debe ingresar la patente!!");
+                    return;
+            }
             if (MessageBox.Show("Seguro que desea dar de baja el camion: " + patente,
                 "ALERTA!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question,
                 MessageBoxDefaultButton.Button2) == DialogResult.Yes)
@@ -212,10 +227,7 @@ namespace Reportes_Ejercicio_1_6
             }
         }
 
-        private void btnActualizar_Click_1(object sender, EventArgs e)
-        {
-            CargarDGV(dgvCamiones);
-        }
+        
 
         private void btnGrabar_Click_1(object sender, EventArgs e)
         {
@@ -234,6 +246,11 @@ namespace Reportes_Ejercicio_1_6
 
             GrabarCarga();
             CargarDGV(dgvCamiones);
+            btnGrabar.Enabled = false;
+            btnNuevo.Enabled = true;
+            btnEditar.Enabled = true;
+            habilitarIngresarDatos(false);
+            limpiarCampos();
         }
 
         private void btnSalir_Click_1(object sender, EventArgs e)
@@ -247,7 +264,16 @@ namespace Reportes_Ejercicio_1_6
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            limpiarCampos();
+            
+        }
 
+        private void limpiarCampos()
+        {
+            txtPatente.Text = "";
+            txtPesoCarga.Text = "";
+            txtPesoMaximo.Text = "";
+            cboTipoCarga.SelectedIndex = -1;
         }
 
         private void btnAgregarCarga_Click_1(object sender, EventArgs e)
@@ -261,15 +287,28 @@ namespace Reportes_Ejercicio_1_6
 
         }
 
-        private void btnReporte22_Click(object sender, EventArgs e)
-        {
-            new Reporte22().ShowDialog();
-
-        }
+       
 
         private void btnReport33_Click(object sender, EventArgs e)
         {
             new Reporte33().ShowDialog();
+        }
+
+        private void btnNuevo_Click(object sender, EventArgs e)
+        {
+            accion = "nuevo";
+            btnGrabar.Enabled = true;
+            btnNuevo.Enabled = false;
+            habilitarIngresarDatos(true);
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            accion = "actualizar";
+            btnNuevo.Enabled = true;
+            btnEditar.Enabled = false;
+            btnGrabar.Enabled = true;
+            habilitarIngresarDatos(true);
         }
     }
 }

@@ -259,7 +259,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Reporte de Cargas y Camiones</Value>
+                  <Value>Reporte de Cargas y Camiones activos</Value>
                   <Style>
                     <FontStyle>Italic</FontStyle>
                     <FontSize>18pt</FontSize>
@@ -274,9 +274,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox2</rd:DefaultName>
-          <Top>0.81703cm</Top>
+          <Top>0.34078cm</Top>
           <Left>2.66912cm</Left>
-          <Height>1.39375cm</Height>
+          <Height>1.87cm</Height>
           <Width>11.54875cm</Width>
           <Style>
             <Border>
@@ -310,7 +310,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Este reporte muestra cada camion con el peso de carga y la cantidad cargada</Value>
+                  <Value>Este reporte muestra cada camion con el peso de carga y la cantidad cargada, utilizando funciones de agrupamiento en SQL ( SUM, AVG,y group by)</Value>
                   <Style>
                     <FontFamily>Calibri Light</FontFamily>
                     <FontSize>12pt</FontSize>
@@ -324,8 +324,8 @@
           <rd:DefaultName>Textbox4</rd:DefaultName>
           <Top>0.29958cm</Top>
           <Left>1.63724cm</Left>
-          <Height>1.235cm</Height>
-          <Width>12.58062cm</Width>
+          <Height>1.84354cm</Height>
+          <Width>12.8452cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
