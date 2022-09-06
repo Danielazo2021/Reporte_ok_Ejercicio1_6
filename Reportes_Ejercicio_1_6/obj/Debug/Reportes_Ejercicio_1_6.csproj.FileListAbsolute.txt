@@ -153,10 +153,4 @@ C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\ob
 C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\obj\Debug\Reportes_Ejercicio_1_6.exe
 C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\obj\Debug\Reportes_Ejercicio_1_6.pdb
 C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\obj\Debug\Reportes_Ejercicio_1_6.Reportes.Reporte33.resources
-C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\bin\Debug\Microsoft.VisualStudio.Shell.Interop.dll
-C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\bin\Debug\Microsoft.VisualStudio.Shell.Interop.8.0.dll
-C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\bin\Debug\Microsoft.VisualStudio.OLE.Interop.dll
-C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.dll
-C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\bin\Debug\Microsoft.VisualStudio.TextManager.Interop.8.0.dll
-C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\obj\Debug\RdlCompile.cache
-C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\obj\Debug\RdlCompile.compiled
+C:\Users\54351\source\repos\Reportes_ejercicio1_6-main\Reportes_Ejercicio_1_6\obj\Debug\Reportes_Ejercicio_1_6.csproj.SuggestedBindingRedirects.cache
