@@ -284,7 +284,12 @@ namespace Reportes_Ejercicio_1_6
         private void btnReporte1_Click_1(object sender, EventArgs e)
         {
             new Reporte1().ShowDialog();
-
+            /*tendria que tirar con el obd el data table con el helper y de ahi poner la tabla en 
+             en local report add ( tiramos los datos como en el teorico)*/
+            /*  Parallel poner un filtro desdde hasta pongo 2 label y 2 datapicker, con un boton y disparo el 
+             *  reporte desde un boton nuevo y saco del load el reporte*/
+          /*  DateTimePicker.desde = DateTime.Now.AddDays(-30);
+                 DateTimePicker.desde = DateTime.Now; asi sacaria el periodo de los ultimos 30 dias*/
         }
 
        
