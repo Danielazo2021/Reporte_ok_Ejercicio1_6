@@ -203,6 +203,7 @@ namespace Reportes_Ejercicio_1_6
             {
                 MessageBox.Show("Debe ingresar la patente!!");
                     return;
+
             }
             if (MessageBox.Show("Seguro que desea dar de baja el camion: " + patente,
                 "ALERTA!!", MessageBoxButtons.YesNo, MessageBoxIcon.Question,
