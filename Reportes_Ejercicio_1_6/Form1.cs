@@ -1,4 +1,6 @@
 ﻿using Reportes_Ejercicio_1_6.Datos;
+using Reportes_Ejercicio_1_6.Datos.Implementaciones;
+using Reportes_Ejercicio_1_6.Datos.Intefaces;
 using Reportes_Ejercicio_1_6.Dominio;
 using Reportes_Ejercicio_1_6.Reportes;
 using System;
@@ -17,7 +19,10 @@ namespace Reportes_Ejercicio_1_6
 {
     public partial class Form1 : Form
     {
-        Acceso_Datos oBD = new Acceso_Datos();
+        ICamionesDao Dao;
+
+        
+        //Acceso_Datos oBD = new Acceso_Datos();
         List<DetalleCarga> Detalles = new List<DetalleCarga>();
         Camion CAM = new Camion();
         DetalleCarga OCarga;
@@ -26,6 +31,7 @@ namespace Reportes_Ejercicio_1_6
         public Form1()
         {
             InitializeComponent();
+            Dao = new CamionesDao();
         }
 
       
@@ -50,7 +56,7 @@ namespace Reportes_Ejercicio_1_6
 
         private void CargarCombo(string pa)
         {
-            DataTable tabla = oBD.consultarBD(pa);
+            DataTable tabla = Dao.consultarBD(pa);
 
             cboTipoCarga.DataSource = tabla;
             cboTipoCarga.ValueMember = tabla.Columns[0].ColumnName;
@@ -60,7 +66,7 @@ namespace Reportes_Ejercicio_1_6
 
         private void CargarDGV(DataGridView dgvCamiones)
         {
-            dgvCamiones.DataSource = oBD.consultarBD("pa_ConsultaCamiones"); // pa solo utilizado en el dgv. 
+            dgvCamiones.DataSource = Dao.consultarBD("pa_ConsultaCamiones"); // pa solo utilizado en el dgv. 
         }
 
        
@@ -89,7 +95,7 @@ namespace Reportes_Ejercicio_1_6
 
             if (accion == "nuevo")
             {
-                if (oBD.GuardarMestro_Detalle("pa_cargarCamionNuevo", CAM, "pa_cargarCargaNueva", OCarga))
+                if (Dao.GuardarMestro_Detalle("pa_cargarCamionNuevo", CAM, "pa_cargarCargaNueva", OCarga))
                 {
                     MessageBox.Show("Carga registrada correctamente", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -103,7 +109,7 @@ namespace Reportes_Ejercicio_1_6
             else
                 if(accion == "actualizar") // ver el sp de actualizacion // cambiar maestro detalle
             {
-                if (oBD.GuardarMestro_Detalle("[pa_modificarCamion]", CAM, "pa_ModificarCarga", OCarga))
+                if (Dao.GuardarMestro_Detalle("[pa_modificarCamion]", CAM, "pa_ModificarCarga", OCarga))
                 {
                     MessageBox.Show("Actualizacion registrada correctamente", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -212,7 +218,7 @@ namespace Reportes_Ejercicio_1_6
             //respuesta = (MessageBox.Show("esta seguro que desea dar de baja el camion:  " + patente, "Alerta", MessageBoxButtons.YesNoCancel).ToString());
             //if(respuesta == yes)
             {
-                if ((oBD.actualizarBD("pa_ActualizarEstadoCamion", patente)))
+                if (Dao.actualizarBD("pa_ActualizarEstadoCamion", patente))
                 {
                     MessageBox.Show("El camion:  " + patente + " se dio de baja correctamente ", "Alerta", MessageBoxButtons.OK);
                     CargarDGV(dgvCamiones);
@@ -277,10 +283,7 @@ namespace Reportes_Ejercicio_1_6
             cboTipoCarga.SelectedIndex = -1;
         }
 
-        private void btnAgregarCarga_Click_1(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void btnReporte1_Click_1(object sender, EventArgs e)
         {
