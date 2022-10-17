@@ -20,7 +20,7 @@ namespace Reportes_Ejercicio_1_6.Datos.Intefaces
 
         bool GuardarMestro_Detalle(string pa_camion, Camion ocamion, string pa_carga, DetalleCarga oCarga);
 
-        void guardarDetalle(string pa, DetalleCarga oCarga);
+        bool guardarDetalle(string pa, DetalleCarga oCarga);
 
 
 

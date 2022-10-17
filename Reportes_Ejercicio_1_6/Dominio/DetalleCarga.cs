@@ -11,7 +11,6 @@ namespace Reportes_Ejercicio_1_6.Dominio
         public Camion camion { get; set; }
         public int peso { get; set; }
         public int tipo_carga { get; set; }
-
         public string patente { get; set; }
 
         public DetalleCarga(Camion miCamion, int pCarga, int tCarga)
@@ -21,8 +20,7 @@ namespace Reportes_Ejercicio_1_6.Dominio
             tipo_carga = tCarga;
             patente = miCamion.patente;
 
-        }
-
+        }     
 
     }
 }

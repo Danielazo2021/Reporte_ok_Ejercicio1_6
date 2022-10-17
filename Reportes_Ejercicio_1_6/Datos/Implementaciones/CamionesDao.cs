@@ -8,11 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Sql;
 using System.Data.SqlClient;
+using Reportes_Ejercicio_1_6.Datos;
 
 namespace Reportes_Ejercicio_1_6.Datos.Implementaciones
 {
     internal class CamionesDao : ICamionesDao
     {
+      //  SqlConnection conexion = SingletonDao.ObtenerInstance();
+
         SqlConnection conexion = new SqlConnection(@"Data Source =laptop-sjp45n95; Initial Catalog = ejercicio_1_6_camiones; Integrated Security = True");
         SqlCommand comando = new SqlCommand();
         public bool actualizarBD(string pa, string identificador)
@@ -66,8 +69,9 @@ namespace Reportes_Ejercicio_1_6.Datos.Implementaciones
             }
         }
 
-        public void guardarDetalle(string pa, DetalleCarga oCarga)
+        public bool guardarDetalle(string pa, DetalleCarga oCarga)
         {
+            bool confirmacion = false;
             try
             {
                 SqlCommand cmdDetalle = new SqlCommand(pa, conexion);
@@ -77,6 +81,7 @@ namespace Reportes_Ejercicio_1_6.Datos.Implementaciones
                 cmdDetalle.Parameters.AddWithValue("@Codigo_tipoCarga", oCarga.tipo_carga);
                 cmdDetalle.Parameters.AddWithValue("@PesoCarga", oCarga.peso);
                 cmdDetalle.ExecuteNonQuery();
+                confirmacion = true;
             }
             catch (Exception)
             {
@@ -87,6 +92,7 @@ namespace Reportes_Ejercicio_1_6.Datos.Implementaciones
                 if (conexion.State == ConnectionState.Open)
                     conexion.Close();
             }
+            return confirmacion;
         }
 
         public void guardarMaestro(string pa, Camion Ocamion)
@@ -155,3 +161,9 @@ namespace Reportes_Ejercicio_1_6.Datos.Implementaciones
         }
     }
 }
+
+
+/* ver de asignar mas de una carga a un camion que no esta andando
+ * 
+ * 
+ * */

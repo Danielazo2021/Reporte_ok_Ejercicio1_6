@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Datos\Acceso_Datos.cs" />
+    <Compile Include="Datos\Conexion_Global.cs" />
     <Compile Include="Datos\Implementaciones\CamionesDao.cs" />
     <Compile Include="Datos\Intefaces\ICamionesDao.cs" />
     <Compile Include="Dominio\Camion.cs" />

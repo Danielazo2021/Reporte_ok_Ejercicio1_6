@@ -20,9 +20,8 @@ namespace Reportes_Ejercicio_1_6
     public partial class Form1 : Form
     {
         ICamionesDao Dao;
-
         
-        //Acceso_Datos oBD = new Acceso_Datos();
+       
         List<DetalleCarga> Detalles = new List<DetalleCarga>();
         Camion CAM = new Camion();
         DetalleCarga OCarga;
@@ -34,16 +33,12 @@ namespace Reportes_Ejercicio_1_6
             Dao = new CamionesDao();
         }
 
-      
-
         private void Form1_Load(object sender, EventArgs e)
         {
             CargarDGV(dgvCamiones);
             CargarCombo("pa_cargarCombo");
             btnGrabar.Enabled = false;
             habilitarIngresarDatos(false);
-
-
         }
 
         private void habilitarIngresarDatos(bool v)
@@ -69,8 +64,6 @@ namespace Reportes_Ejercicio_1_6
             dgvCamiones.DataSource = Dao.consultarBD("pa_ConsultaCamiones"); // pa solo utilizado en el dgv. 
         }
 
-       
-
         private void GrabarCarga()
         {
             /*Ocamion = new Camion();
@@ -81,10 +74,8 @@ namespace Reportes_Ejercicio_1_6
             Ocamion.pesoMaximo = Convert.ToInt32(txtPesoMaximo.Text);
 
             */
-
-
-            var tipo_carga = Convert.ToInt32(cboTipoCarga.SelectedValue);
-            var pesoCarga = Convert.ToInt32(txtPesoCarga.Text);
+            int tipo_carga = Convert.ToInt32(cboTipoCarga.SelectedValue);
+            int pesoCarga = Convert.ToInt32(txtPesoCarga.Text);
 
             OCarga = new DetalleCarga(CAM, pesoCarga, tipo_carga);
 
@@ -123,9 +114,6 @@ namespace Reportes_Ejercicio_1_6
             }
         }
 
-
-
-
         private void btnAgregarCarga_Click(object sender, EventArgs e)
         {
 
@@ -140,8 +128,6 @@ namespace Reportes_Ejercicio_1_6
                 MessageBox.Show("Debe ingresar el peso de la carga!", "Control", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
-
             string patente = (txtPatente.Text);
             int estado = 1;
             int pesoMaximo = Convert.ToInt32(txtPesoMaximo.Text);
@@ -152,10 +138,7 @@ namespace Reportes_Ejercicio_1_6
             int tipoCarga = Convert.ToInt32(cboTipoCarga.SelectedValue);
 
             DetalleCarga detalle = new DetalleCarga(CAM, pesoCarga, tipoCarga);
-
             CAM.AgregarDetalle(detalle);
-
-
 
             /// ver de meter en el dgv
             /*DataRowView item = (DataRowView)cboTipoCarga.SelectedItem;
@@ -176,14 +159,8 @@ namespace Reportes_Ejercicio_1_6
 
             //dgvCamiones.Rows.Add(new object[] { item.Row.ItemArray[0], item.Row.ItemArray[1], item.Row.ItemArray[2], nudCantidad.Text });
             */
-
-
-
-
         }
-
-       
-
+               
         private void dgvCamiones_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
@@ -193,13 +170,7 @@ namespace Reportes_Ejercicio_1_6
                 dgvCamiones.Rows.Remove(dgvCamiones.CurrentRow);
 
             }
-
-
-
-
         }
-
-       
                
         private void btnDarDeBajaCamion_Click_1(object sender, EventArgs e)
         {
@@ -283,8 +254,6 @@ namespace Reportes_Ejercicio_1_6
             cboTipoCarga.SelectedIndex = -1;
         }
 
-       
-
         private void btnReporte1_Click_1(object sender, EventArgs e)
         {
             new Reporte1().ShowDialog();
@@ -296,8 +265,6 @@ namespace Reportes_Ejercicio_1_6
                  DateTimePicker.desde = DateTime.Now; asi sacaria el periodo de los ultimos 30 dias*/
         }
 
-       
-
         private void btnReport33_Click(object sender, EventArgs e)
         {
             new Reporte33().ShowDialog();
@@ -308,6 +275,7 @@ namespace Reportes_Ejercicio_1_6
             accion = "nuevo";
             btnGrabar.Enabled = true;
             btnNuevo.Enabled = false;
+            btnAgregarSoloCarga.Enabled = true;
             habilitarIngresarDatos(true);
         }
 
@@ -318,6 +286,51 @@ namespace Reportes_Ejercicio_1_6
             btnEditar.Enabled = false;
             btnGrabar.Enabled = true;
             habilitarIngresarDatos(true);
+        }
+
+        private void btnAgregarSoloCarga_Click(object sender, EventArgs e)
+        {
+            if (txtPatente.Text == "")
+            {
+                MessageBox.Show("Debe ingresar una patente");
+                return;
+            }
+            if (txtPesoCarga.Text == "")
+            {
+                MessageBox.Show("Debe ingresar el pesode la carga");
+                return;
+            }
+
+            CAM = new Camion();
+            CAM.patente = txtPatente.Text;
+            CAM.pesoMaximo = Convert.ToInt32(txtPesoMaximo.Text);
+
+            int tipo_carga = Convert.ToInt32(cboTipoCarga.SelectedValue);
+            int pesoCarga = Convert.ToInt32(txtPesoCarga.Text);
+
+            OCarga = new DetalleCarga(CAM, pesoCarga, tipo_carga);
+
+            OCarga.patente = Convert.ToString(CAM.patente);
+            OCarga.tipo_carga = tipo_carga;
+            OCarga.peso = pesoCarga;
+
+            //CAM.AgregarDetalle(OCarga);
+
+           
+
+            if (Dao.guardarDetalle("pa_cargarCargaNueva", OCarga))
+            {
+                MessageBox.Show("Carga registrada correctamente", "Informe", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                MessageBox.Show("ERROR. No se pudo registrar la carga", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+            limpiarCampos();
+            CargarDGV(dgvCamiones);
+
         }
     }
 }

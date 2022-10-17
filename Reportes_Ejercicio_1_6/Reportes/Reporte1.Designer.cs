@@ -31,13 +31,23 @@ namespace Reportes_Ejercicio_1_6.Reportes
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.DataSet1 = new Reportes_Ejercicio_1_6.Reportes.DataSet1();
             this.camionesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.DataSet1 = new Reportes_Ejercicio_1_6.Reportes.DataSet1();
+            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
             this.camionesTableAdapter = new Reportes_Ejercicio_1_6.Reportes.DataSet1TableAdapters.camionesTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.camionesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).BeginInit();
             this.SuspendLayout();
+            // 
+            // camionesBindingSource
+            // 
+            this.camionesBindingSource.DataMember = "camiones";
+            this.camionesBindingSource.DataSource = this.DataSet1;
+            // 
+            // DataSet1
+            // 
+            this.DataSet1.DataSetName = "DataSet1";
+            this.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // reportViewer1
             // 
@@ -49,18 +59,8 @@ namespace Reportes_Ejercicio_1_6.Reportes
             this.reportViewer1.Location = new System.Drawing.Point(0, 0);
             this.reportViewer1.Name = "reportViewer1";
             this.reportViewer1.ServerReport.BearerToken = null;
-            this.reportViewer1.Size = new System.Drawing.Size(800, 450);
+            this.reportViewer1.Size = new System.Drawing.Size(829, 463);
             this.reportViewer1.TabIndex = 0;
-            // 
-            // DataSet1
-            // 
-            this.DataSet1.DataSetName = "DataSet1";
-            this.DataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // camionesBindingSource
-            // 
-            this.camionesBindingSource.DataMember = "camiones";
-            this.camionesBindingSource.DataSource = this.DataSet1;
             // 
             // camionesTableAdapter
             // 
@@ -70,13 +70,13 @@ namespace Reportes_Ejercicio_1_6.Reportes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(829, 463);
             this.Controls.Add(this.reportViewer1);
             this.Name = "Reporte1";
             this.Text = "Reporte1";
             this.Load += new System.EventHandler(this.Reporte1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.camionesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DataSet1)).EndInit();
             this.ResumeLayout(false);
 
         }

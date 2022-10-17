@@ -42,7 +42,6 @@ namespace Reportes_Ejercicio_1_6.Datos //Remplace el modelo de Acceso a datos co
                 }
             }
         }
-
         public void guardarMaestro(string pa, Camion Ocamion)
         {
 
@@ -52,13 +51,10 @@ namespace Reportes_Ejercicio_1_6.Datos //Remplace el modelo de Acceso a datos co
             {
                 SqlCommand cmdMaestro = new SqlCommand(pa, conexion);
                 conexion.Open();
-
                 cmdMaestro.CommandType = CommandType.StoredProcedure;
-
                 cmdMaestro.Parameters.AddWithValue("@Patente", Ocamion.patente);
                 cmdMaestro.Parameters.AddWithValue("@Id_estado", Ocamion.estado);
                 cmdMaestro.Parameters.AddWithValue("@PesoMaximo", Ocamion.pesoMaximo);
-
                 cmdMaestro.ExecuteNonQuery();
             }
             catch (Exception)
@@ -70,18 +66,12 @@ namespace Reportes_Ejercicio_1_6.Datos //Remplace el modelo de Acceso a datos co
                 if (conexion.State == ConnectionState.Open)
                     conexion.Close();
             }
-
         }
-
-
-
-
 
         public bool actualizarBD(string pa, string identificador)
         {
             bool confirmacion = true;
             SqlCommand comando = new SqlCommand(pa, conexion);
-
 
             ///
             try
@@ -90,29 +80,20 @@ namespace Reportes_Ejercicio_1_6.Datos //Remplace el modelo de Acceso a datos co
                 comando.CommandType = CommandType.StoredProcedure;
                 comando.Parameters.AddWithValue("@patente", identificador);
                 comando.ExecuteNonQuery();
-
-
-
             }
             catch (SqlException)
             {
                 confirmacion = false;
-
             }
             finally
             {
                 if (conexion.State == ConnectionState.Open)
                 {
                     conexion.Close();
-
                 }
-
             }
             return confirmacion;
         }
-
-
-
 
         internal bool GuardarMestro_Detalle(string pa_camion, Camion ocamion, string pa_carga, DetalleCarga oCarga)
         {
@@ -157,33 +138,16 @@ namespace Reportes_Ejercicio_1_6.Datos //Remplace el modelo de Acceso a datos co
                 if (conexion.State == ConnectionState.Open)
                     conexion.Close();
             }
-
-
-
-
             return confirmacion;
 
         }
-
-
-
-
-
-
-
-
-
         internal void guardarDetalle(string pa, DetalleCarga oCarga)
         {
-
             try
             {
                 SqlCommand cmdDetalle = new SqlCommand(pa, conexion);
-
                 conexion.Open();
-
                 cmdDetalle.CommandType = CommandType.StoredProcedure;
-
                 cmdDetalle.Parameters.AddWithValue("@Patente", oCarga.patente);  // modifique el constructor
                 cmdDetalle.Parameters.AddWithValue("@Codigo_tipoCarga", oCarga.tipo_carga);
                 cmdDetalle.Parameters.AddWithValue("@PesoCarga", oCarga.peso);
@@ -199,7 +163,6 @@ namespace Reportes_Ejercicio_1_6.Datos //Remplace el modelo de Acceso a datos co
                 if (conexion.State == ConnectionState.Open)
                     conexion.Close();
             }
-
         }
     }*/
 }
